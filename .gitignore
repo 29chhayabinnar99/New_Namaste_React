@@ -1,0 +1,3 @@
+node_modules/ 
+#👉 This ignores any node_modules folder anywhere in the project.
+#/node_modules 👉 This ignores only the root-level node_modules folder.

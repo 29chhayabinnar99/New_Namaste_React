@@ -1,21 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-/** CREATE SINGLE COMPONENT */
-//heading is a object if u print it in console this will creat element h1
+/** CREATE SINGLE COMPONENT */ //heading is a object if u print it in console this will creat element h1
 //{}this is a object where we can give attribute to the h1 tag sometimes we have to give class id or anything
-const heading = React.createElement(
-  "h1",
-  { id: "heading" }, // this are the props
-  "Hello world in React", //this is a children
-);
+const heading = React.createElement("h1", {
+    id: "heading"
+}, "Hello world in React");
 // this will put h1 element in the root id div
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // root will render the heading
 root.render(heading);
-
-/** THIS IS NESTED COMPONENT CREATION */
-/**
+/** THIS IS NESTED COMPONENT CREATION */ /**
  *
  * <div id="parent">
  *      <div id="child">
@@ -24,20 +16,16 @@ root.render(heading);
  *          <h2> I am H1 tag</h2>
  *      </div>
  * </div>
- */
-
-const parent = React.createElement(
-  "div",
-  { id: "parent" },
-  React.createElement("div", { id: "child" }, [
+ */ const parent = React.createElement("div", {
+    id: "parent"
+}, React.createElement("div", {
+    id: "child"
+}, [
     React.createElement("h1", {}, "I am H1 tag"),
-    React.createElement("h2", {}, "I am H2 tag"),
-  ]),
-);
-
+    React.createElement("h2", {}, "I am H2 tag")
+]));
 //we store parent-child id into parentchild veriable or viseversa
-const parentChild = ReactDOM.createRoot(
-  document.getElementById("parent-child"),
-);
-
+const parentChild = ReactDOM.createRoot(document.getElementById("parent-child"));
 parentChild.render(parent);
+
+//# sourceMappingURL=React_start.6bd02f5a.js.map

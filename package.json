@@ -1,0 +1,26 @@
+{
+  "name": "react_start",
+  "version": "1.0.0",
+  "description": "This is React code",
+  "scripts": {
+    "start":"parcel index.html",
+    "build":"parcel buld index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/29chhayabinnar99/New_Namaste_React.git"
+  },
+  "author": "chhaya",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+  "last 5 versions"
+]
+}
