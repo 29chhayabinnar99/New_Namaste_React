@@ -27,9 +27,27 @@ const functionalRoot = ReactDOM.createRoot(
 functionalRoot.render(<FunctionalComponent />);
 
 //Assignment
+/** THIS IS NESTED COMPONENT CREATION */
+/**
+ * <div id="parent">
+ *      <div id="child">
+ *          <h1> I am H1 tag</h1>
+ *          //If you want to create sibling tags you have to create an array of children
+ *          <h2> I am H1 tag</h2>
+ *      </div>
+ * </div>
+ */
 function Assignment() {
-  return <div id="AssignmentHeading">hi</div>;
+  return (
+    <div id="parent">
+      <div id="child">
+        <h1>I am H1 tag</h1>
+        <h2> I am H1 tag</h2>
+      </div>
+    </div>
+  );
 }
 
 const AssignRoot = ReactDOM.createRoot(document.getElementById("AssignRoot"));
+console.log(AssignRoot);
 AssignRoot.render(<Assignment />);
