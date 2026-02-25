@@ -136,7 +136,7 @@ This project has a basic structure divided into three main sections: **Header**,
 
 # **Reaact hook** - it is just a normal utility function which is given to us by react. Its a prebuilt whoch comes up with special power.
 
-# useState- whenever state veriable changes react rerender our component
+# useState- whenever state veriable (listOfResto) changes react rerender our funtional component(setListOfResto).
 
 # Why React is fast: React does efficient DOM manipulation. It uses Virtual DOM (which has a diffing algorithm to efficiently compare changes) it will find out the diff and update the UI only change part.
 
