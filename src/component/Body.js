@@ -1,20 +1,26 @@
 import RestaurentCard from "./RestaurentCard";
 import resList from "../utils/mockData";
+import { useState } from "react";
 
 const Body = () => {
-  function FilterResto(resList) {
-    const filetertop = resList.filter(
-      (restaurent) => restaurent.data.rating > 4,
-    );
-    console.log(filetertop);
-    // resList.map((restaurent)=><RestaurentCard key={restaurent.data.id})
-  }
+  //local state variable-super powerful variable
+  const [listOfRestaurent, setListOfRestaurent] = useState(resList);
+  // const [StateVeriable, TheFuntionToUpdateTheState]=useState(IntialValue)
+
   return (
     <div className="body">
-      <button className="search">Top Rated Restaurents</button>
+      <button
+        className="search"
+        onClick={() => {
+          const filteredTop = resList.filter((res) => res.data.rating > 4);
+          setListOfRestaurent(filteredTop);
+        }}
+      >
+        Top Rated Restaurents
+      </button>
       <div className="res-container">
         {/* we are mapping is restaurent by id  */}
-        {resList.map(
+        {listOfRestaurent.map(
           (
             restaurent, // we can use index as second parameter but react says it is bad practice so will use id here
           ) => (

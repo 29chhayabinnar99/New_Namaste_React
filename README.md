@@ -70,7 +70,7 @@
 
 # Component Composition - Building UI by combining small component into other component [instead of writing big component we composed(combined) smaller components]
 
-# funtional compoent - A functional component is a normal JavaScript function that returns JSX.
+# funtional component - A functional component is a normal JavaScript function that returns JSX.
 
 # funtion - is a block of code which perform a specific task and it runs only when it is called . funtion is a reusable block of code.
 
@@ -88,8 +88,8 @@ This project has a basic structure divided into three main sections: **Header**,
 
 ## Header
 
-- **Logo**
-- **Navigation Items**
+- Logo
+- Navigation Items
 
 ## Body
 
@@ -101,10 +101,10 @@ This project has a basic structure divided into three main sections: **Header**,
 
 ## Footer
 
-- **Copyrights**
-- **Links**
-- **Contacts**
-- **Address**
+- Copyrights
+- Links
+- Contacts
+- Address
 
 # config driven UI - The UI is generated based on configuration (data/JSON) instead of being hardcoded in the component.
 
@@ -126,12 +126,27 @@ This project has a basic structure divided into three main sections: **Header**,
 
 ---
 
-# **tips**- never add hardcoded value in component file like data or src strings/ img url etc
+# **Tips**- never add hardcoded value in component file like data or src strings/ img url etc.
 
-# **Named Export/Import** - Use when: You want to export multiple things from a file. (example => export veriable_name/compoenent_name; import{veriable_name/compoenent_name} from "file_location")
+# **Named Export/Import** - Use when: You want to export multiple things from a file. (example => export veriable_name/compoenent_name; import{veriable_name/compoenent_name} from "file_location").
 
-# **Default Export/Import** - Use when: The file has one main thing (component, function, class).(example => export default compoenent_name; import component_name from "file_location")
+# **Default Export/Import** - Use when: The file has one main thing (component, function, class).(example => export default compoenent_name; import component_name from "file_location").
 
-# React element is a normal js object. React later converts it into real DOM
+# React element is a normal js object. React later converts it into real DOM.
 
-# Reaact hook - it is just a normal utility function which is given to us by react. Its a prebuilt whoch comes up with special power
+# **Reaact hook** - it is just a normal utility function which is given to us by react. Its a prebuilt whoch comes up with special power.
+
+# useState- whenever state veriable changes react rerender our component
+
+# Why React is fast: React does efficient DOM manipulation. It uses Virtual DOM (which has a diffing algorithm to efficiently compare changes) it will find out the diff and update the UI only change part.
+
+# React fiber/ reconcilation algorithm
+
+- Real DOM
+  - Tree-like structure of the actual HTML elements in the browser.
+  - DOM is heavy — changing even one element requires the browser to recalculate layout, repaint, and re-render parts of the page.
+
+- Virtual DOM
+  - Lightweight copy of real DOM.
+  - React compares the old Virtual DOM and the new Virtual DOM (this process is called reconciliation).
+  - Updates only the changed parts in the real DOM, making UI updates fast and efficient.

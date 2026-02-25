@@ -2,6 +2,7 @@ import { IMG_BASE_URL } from "../utils/constant";
 
 const RestaurentCard = ({ resData }) => {
   //we are passing resdata as a props here
+  //{ cloudinaryImageId, name, rating, cuisine, deliveryTime } Takes these specific properties from resData.data and creates variables with the same names.
   const { cloudinaryImageId, name, rating, cuisine, deliveryTime } =
     resData?.data;
   // ?. is called optional chaining. It safely accesses a property only if the object exists. Without ?., trying to access .data on undefined crashes the app. With ?., it returns undefined safely.
