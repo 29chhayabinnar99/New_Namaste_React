@@ -80,6 +80,32 @@
 
 ---
 
+# Project Structure
+
+This project has a basic structure divided into three main sections: **Header**, **Body**, and **Footer**.
+
+---
+
+## Header
+
+- **Logo**
+- **Navigation Items**
+
+## Body
+
+- **Search**
+- **Restaurant Container**
+  - **Restaurant Card**
+    - Image
+    - Restaurant Name
+
+## Footer
+
+- **Copyrights**
+- **Links**
+- **Contacts**
+- **Address**
+
 # config driven UI - The UI is generated based on configuration (data/JSON) instead of being hardcoded in the component.
 
 # KEY is a special prop used when rendering lists.
@@ -90,10 +116,22 @@
 - Update only what changed
 - Prevent UI bugs
 
-# will use index instead of unique key just for example {resList.map((restaurent, index) => (<RestaurentCard key={index} resData={restaurent}/>),)}
+# will use index instead of unique key just for example
+
+- {resList.map((restaurent, index) => (<RestaurentCard key={index} resData={restaurent}/>),)}
 
 ---
 
 # Episode 05
 
 ---
+
+# **tips**- never add hardcoded value in component file like data or src strings/ img url etc
+
+# **Named Export/Import** - Use when: You want to export multiple things from a file. (example => export veriable_name/compoenent_name; import{veriable_name/compoenent_name} from "file_location")
+
+# **Default Export/Import** - Use when: The file has one main thing (component, function, class).(example => export default compoenent_name; import component_name from "file_location")
+
+# React element is a normal js object. React later converts it into real DOM
+
+# Reaact hook - it is just a normal utility function which is given to us by react. Its a prebuilt whoch comes up with special power
