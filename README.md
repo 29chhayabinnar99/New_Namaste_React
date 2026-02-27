@@ -150,3 +150,20 @@ This project has a basic structure divided into three main sections: **Header**,
   - Lightweight copy of real DOM.
   - React compares the old Virtual DOM and the new Virtual DOM (this process is called reconciliation).
   - Updates only the changed parts in the real DOM, making UI updates fast and efficient.
+
+# useEffect -
+
+- useEffect runs after the component renders and the DOM is updated.
+
+# CORS
+
+- CORS (Cross-Origin Resource Sharing) is a browser security feature that controls whether one website can access resources from another website.
+
+- If a frontend app tries to request data from a different domain, the browser checks whether the server allows it. If the server sends the proper permission header (like Access-Control-Allow-Origin), the request succeeds. Otherwise, the browser blocks it and shows a CORS error.
+
+- In short:
+  👉 CORS protects users by preventing unauthorized cross-domain requests.
+
+- Origin = Protocol + Domain + Port[https://example.com:3000]
+
+# conditional rendering - a rendering based on condition called conditional rendering
