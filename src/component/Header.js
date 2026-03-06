@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constant";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
-  let count = 0;
   // when it 1st render btn name takes login vlaue but whne you click state changed component render and variable stores new value logout in btnvalue. it means whever you click on button  btnvalue will chnage
-
-  // if no dependency array => it will render every time of component
-  // if dependency array present => [] => useEffect will call only on initial render
-  // it dependency array is =>[btnName]=> useeefect will call every time when btnName is updated
   useEffect(() => {
     console.log("useEffect called");
   });
@@ -19,9 +15,15 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
+          </li>
           <li>Cart</li>
           <li
             onClick={() => {

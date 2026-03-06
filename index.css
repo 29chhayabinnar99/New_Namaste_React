@@ -1,44 +1,122 @@
-#root{
-    padding: 20px;
-}
-.header{
-    display: flex;
-    border: 1px solid black;
-    justify-content: space-between;
+/* General Root & Page */
+#root {
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8;
 }
 
-.logo{
-    width: 220px;
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 20px;
+  background-color: #fff;
 }
 
-.nav-items{
-    padding: 30px;
-}
-.nav-items>ul{
-    display: flex;
-    list-style: none;
+/* Logo */
+.logo {
+  width: 220px;
 }
 
-.nav-items>ul >li{
-    padding: 15px;
-    font-size: 24px;
+/* Navigation */
+.nav-items > ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
 }
 
-.res-container{
-    display: flex;
-    flex-wrap: wrap;
-    
+.nav-items > ul > li {
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.3s;
 }
+
+.nav-items > ul > li:hover {
+  color: #007bff;
+}
+
+/* Buttons & Search */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.search-container {
+  display: flex;
+  gap: 10px;
+}
+
+.search-container input[type="text"] {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 250px;
+  font-size: 16px;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.search-container input[type="text"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.search-button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.search-button {
+  background-color: #007bff;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.res-card p {
+  font-size: 13px;
+  color: #444;
+  margin: 0 12px 12px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;   /* show only 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Restaurant Cards Container */
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Restaurant Card */
 .res-card {
-    margin: 10px;
   width: 260px;
+  min-height: 320px; /* ensures all cards are at least this tall */
   border-radius: 16px;
   overflow: hidden;
-  background: #ffffff;
+  background: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
-  padding-bottom: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .res-card:hover {
@@ -46,46 +124,47 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Images */
 .res-logo {
   width: 100%;
   height: 160px;
   object-fit: cover;
 }
 
+.res-card img.res-banner {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+/* Text inside Card */
 .res-card h3 {
-  margin: 12px 12px 6px;
+  height: 50px;
+  margin: 12px;
   font-size: 18px;
   font-weight: 600;
   color: #222;
+    overflow: hidden;
+
 }
 
 .res-card h4 {
+    overflow: hidden;
+
+  height: 40px;
   margin: 0 12px 8px;
   font-size: 14px;
   font-weight: 400;
   color: #666;
 }
 
-.res-card h5 {
-  margin: 4px 12px;
+.res-card p {
+  margin: 0 12px 12px;
   font-size: 13px;
-  font-weight: 500;
   color: #444;
 }
 
-.res-card h5:first-of-type {
-  display: inline-block;
-  background-color: #48c479;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 12px;
-}
-
-.res-card h5:last-of-type {
-  color: #777;
-}
-
+/* Optional Cuisine / Rating Row */
 .cuisine-rating {
   display: flex;
   justify-content: space-between;
@@ -94,70 +173,57 @@
 }
 
 .cuisine-text {
-  flex: 1;               /* take available space */
-  overflow: hidden;      
-  white-space: nowrap;   
-  text-overflow: ellipsis; /* show ... */
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .rate {
-  flex-shrink: 0; /* prevent rating from shrinking */
+  flex-shrink: 0;
   font-weight: bold;
 }
-.search{
-    padding: 15px;
-    padding-right: 20px;
-    padding-left: 20px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  cursor: pointer;
-  background-color: rgb(68, 135, 187);
-  color: white;
-  font-weight: 200;
-}
-.search:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+/* Shimmer / Loading Cards */
+.shimmer-container {
+  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
+.card {
+  width: 260px;
+  height: 250px;
+  border-radius: 16px;
+  background: #dad8d8;
+}
+
+/* Footer */
 .footer {
   background-color: #222;
   color: #fff;
-  padding: 10px;
-  font-family: Arial, sans-serif;
+  padding: 20px 10px;
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-between; /* keeps items in one line */
+  justify-content: space-between;
   align-items: flex-start;
   max-width: 1200px;
   margin: auto;
-  min-height: 80px;
-  flex-wrap: wrap; /* allows wrapping on small screens */
+  flex-wrap: wrap;
 }
 
-.footer h2, .footer h4 {
-  margin-bottom: 10px;
-}
-.footer-links h4{
-   text-align: center;
-}
 .footer-links ul {
   list-style: none;
   display: flex;
-  justify-content: space-between;
+  gap: 15px;
   padding: 0;
 }
 
-.footer-links ul li {
-  margin-bottom: 5px;
-}
-
 .footer-links ul li a {
-  padding: 5px;
   color: #fff;
   text-decoration: none;
 }
@@ -166,41 +232,29 @@
   color: #ff9900;
 }
 
-.footer-contact p {
-  margin: 5px 0;
-}
-
 .footer-bottom {
   text-align: center;
   padding-top: 10px;
   border-top: 1px solid #444;
-  margin-top: 10px;
   font-size: 14px;
   color: #aaa;
 }
 
-/* Optional: Make it responsive */
+/* Responsive */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-  .footer-links, .footer-contact {
-    margin-top: 15px;
+  .button-container {
+    flex-direction: column;
+    align-items: stretch;
   }
-}
-
-.shimmer-container{
-  margin-top: 80px;
-   display: flex;
-    flex-wrap: wrap;
-}
-.card{
-      margin: 10px;
-      height: 250px;
-  width: 260px;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #dad8d8;
+  .res-container {
+    justify-content: center;
+  }
+  .search-container input[type="text"] {
+    width: 100%;
+  }
 }

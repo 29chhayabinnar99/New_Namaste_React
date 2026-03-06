@@ -6,25 +6,25 @@
 
 # 1.Initialize npm:
 
-# npm init (create package.json and package.lockl.json)
+- npm init (create package.json and package.lockl.json)
 
-# npm install (create node modules folder)
+- npm install (create node modules folder)
 
 # 2.Install Parcel:
 
-# npm install -D parcel
+- npm install -D parcel
 
 # 3.Update package.json scripts:
 
-# "scripts": { "start": "parcel index.html" }
+- "scripts": { "start": "parcel index.html" }
 
 # 4.Run project:
 
-# npx parcel index.html
+- npx parcel index.html
 
 # 5.Install React & ReactDOM (18.2.0):
 
-# npm install react@18.2.0 react-dom@18.2.0
+- npm install react@18.2.0 react-dom@18.2.0
 
 # 6.Remove React CDNs from index.html.
 
@@ -134,6 +134,12 @@ This project has a basic structure divided into three main sections: **Header**,
 
 # React element is a normal js object. React later converts it into real DOM.
 
+---
+
+# Episode 06
+
+---
+
 # **Reaact hook** - it is just a normal utility function which is given to us by react. Its a prebuilt whoch comes up with special power.
 
 # useState- whenever state veriable (listOfResto) changes react rerender our funtional component(setListOfResto).
@@ -154,6 +160,10 @@ This project has a basic structure divided into three main sections: **Header**,
 # useEffect -
 
 - useEffect runs after the component renders and the DOM is updated.
+- useEffect takes arguments one is callback funtion and dependency array useEffect(callback, dependencyArray)
+- if no dependency array => it will render every time of component
+- if dependency array present => [] => useEffect will call only on initial render
+- it dependency array is =>[btnName]=> useeefect will call every time when btnName is updated
 
 # CORS
 
@@ -167,3 +177,46 @@ This project has a basic structure divided into three main sections: **Header**,
 - Origin = Protocol + Domain + Port[https://example.com:3000]
 
 # conditional rendering - a rendering based on condition called conditional rendering
+
+---
+
+# Episode 07 (React Router)
+
+---
+
+# createBrowserRouter
+
+- Think of it as the router configuration.
+- You define your routes, and for each route you can specify:
+  - path → URL path
+  - element → Component to render
+  - errorElement → Component to render if the route fails or doesn’t exist
+
+# RouterProvider
+
+- This connects your router configuration to your React app.
+- It makes all routing, navigation, and error handling work in your app.
+
+# useRouteError
+
+- This is a React hook that gives you the error object for the current route.
+- You can use it inside your errorElement component to display info like status and statusText.
+
+# Outlet
+
+– Placeholder in a parent route where child routes will be displayed.
+
+# children
+
+– Used in route config to define nested routes under a parent route.
+
+- These child routes will render inside the parent’s <Outlet />.
+
+# Types of web routing
+
+- Client-side Routing:
+  - Navigation is handled in the browser using JavaScript. The page doesn’t reload; only the content changes.
+- Server-side Routing:
+  - Navigation is handled by the server. Each route click reloads the whole page, and the server sends the HTML for that route.
+
+- Link – Component to navigate between routes without reloading the page.
