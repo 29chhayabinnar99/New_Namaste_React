@@ -70,7 +70,7 @@
 
 # Component Composition - Building UI by combining small component into other component [instead of writing big component we composed(combined) smaller components]
 
-# funtional component - A functional component is a normal JavaScript function that returns JSX.
+# funtional component - A functional component is a normal JavaScript function which returns some JSX.
 
 # funtion - is a block of code which perform a specific task and it runs only when it is called . funtion is a reusable block of code.
 
@@ -106,7 +106,9 @@ This project has a basic structure divided into three main sections: **Header**,
 - Contacts
 - Address
 
-# config driven UI - The UI is generated based on configuration (data/JSON) instead of being hardcoded in the component.
+# config driven UI
+
+- The UI is generated based on configuration (data/JSON) instead of being hardcoded in the component.
 
 # KEY is a special prop used when rendering lists.
 
@@ -220,3 +222,57 @@ This project has a basic structure divided into three main sections: **Header**,
   - Navigation is handled by the server. Each route click reloads the whole page, and the server sends the HTML for that route.
 
 - Link – Component to navigate between routes without reloading the page.
+
+# useParems
+
+- useParams is a React Router hook used to get dynamic values from the URL.
+
+---
+
+# Episode 08
+
+---
+
+# class-based Component
+
+- A class-based component is a JavaScript class that extends React.Component and contains a render() method which returns JSX to display UI.
+- why we use super(props)?
+  - super(props) is used to call the parent class constructor (React.Component) so that this and props are initialized properly in a class component.
+  - If you use super(props) inside the constructor, then React initializes this.props, and you can use this.props anywhere in that class component.
+- why we use .this ?
+  - this refers to the current object (class instance).
+
+# Explain the complete flow of data fetching in React from component load to displaying data on the screen.
+
+- First React renders the UI
+- Then the API call happens
+- Data comes from the API
+- State updates
+- React Rerender
+- Show Data on UI
+
+# What is the execution order of constructor, render, and componentDidMount in Parent and Child components in React ?
+
+- Parent Constructor
+- Parent Render
+- Child Constructor
+- Child Render
+- Child componentDidMount
+- Parent componentDidMount
+
+# What is the execution order of constructor, render, and componentDidMount when a Parent component contains two Child components in React?
+
+Parent initializes first (constructor).
+Parent renders and creates Child components.
+Each Child runs its constructor and render.
+After everything is rendered, componentDidMount runs starting from children, then parent.
+
+- Parent Constructor
+- Parent Render
+- Child-1 Constructor
+- Child-1 Render
+- Child-2 Constructor
+- Child-2 Render
+- Child-1 componentDidMount
+- Child-2 componentDidMount
+- Parent componentDidMount
