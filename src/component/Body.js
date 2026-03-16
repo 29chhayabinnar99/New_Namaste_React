@@ -17,7 +17,6 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(
       "https://www.eatsure.com/v1/api/get_all_brands?&store_id=10226&city_id=9017&is_preorder=true&start_time_slot=2026-03-06T12:45:00&end_time_slot=2026-03-06T13:45:00",
-      // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5288974&lng=73.8665321&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
     );
     const convertedJson = await data.json();
     console.log(convertedJson);
