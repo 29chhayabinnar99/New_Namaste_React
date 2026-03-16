@@ -1,34 +1,14 @@
 import RestaurentCard from "./RestaurentCard";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useRestaurentData from "../utils/useRestaurentData";
 
 const Body = () => {
   //local state variable-super powerful variable
-  const [listOfRestaurent, setListOfRestaurent] = useState([]);
-  // const [StateVeriable, TheFuntionToUpdateTheState]=useState(IntialValue)
   const [searchText, setSearchText] = useState("");
-  const [filterRestaurent, setFilteredRestaurant] = useState([]);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://www.eatsure.com/v1/api/get_all_brands?&store_id=10226&city_id=9017&is_preorder=true&start_time_slot=2026-03-06T12:45:00&end_time_slot=2026-03-06T13:45:00",
-    );
-    const convertedJson = await data.json();
-    console.log(convertedJson);
-    // const restaurentData =
-    //   convertedJson?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-    //     ?.restaurants;
-    const restaurentData = convertedJson?.data.data;
-    console.log(restaurentData);
-    setListOfRestaurent(restaurentData);
-    setFilteredRestaurant(restaurentData);
-  };
-
+  const { listOfRestaurent, filterRestaurent, setFilteredRestaurant } =
+    useRestaurentData();
   return listOfRestaurent?.length === 0 ? (
     <Shimmer />
   ) : (
