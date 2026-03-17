@@ -276,3 +276,36 @@ After everything is rendered, componentDidMount runs starting from children, the
 - Child-1 componentDidMount
 - Child-2 componentDidMount
 - Parent componentDidMount
+
+---
+
+# Episode 09
+
+---
+
+# Custom hook
+
+- A custom hook is your own function that uses hooks internally to reuse logic across components.
+- Rules of a custom hook:
+  - Its name must start with use.
+  - It can call other hooks (useState, useEffect, etc.).
+  - It returns state, functions, or any reusable logic.
+- Why use custom hooks?
+  Imagine you have multiple components that:
+  - Fetch data from an API
+  - Filter a list
+  - Handle search input
+    Instead of repeating the same code in every component, you can extract it into a custom hook.
+
+# What is window.addEventListener?
+
+It listens for events happening in the browser.
+
+# Lazy Loading / Code Splitting / Chunking / Dynamic Bundling / On Demand Loading
+
+- Breaking your large JavaScript bundle into smaller pieces (chunks) so the browser loads only what is needed.
+- bundle.js (2mb) Even if user only needs Home page, they download full app.
+- Only required chunk is loaded → faster app [like home.chunk.js / about.chunk.js /cart.chunk.js]
+- How React does Code Splitting
+  - **lazy()** Used to load components only when needed [const About = lazy(() => import("./About"));]
+  - **Suspense** Used to show fallback UI while loading [<Suspense fallback={<h1>Loading...</h1>}> <About /> </Suspense>]

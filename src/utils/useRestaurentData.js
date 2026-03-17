@@ -14,9 +14,6 @@ const useRestaurentData = () => {
     );
     const convertedJson = await data.json();
     console.log(convertedJson);
-    // const restaurentData =
-    //   convertedJson?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-    //     ?.restaurants;
     const restaurentData = convertedJson?.data.data;
     console.log(restaurentData);
     setListOfRestaurent(restaurentData);

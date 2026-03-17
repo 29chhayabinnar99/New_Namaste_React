@@ -3,12 +3,16 @@ import { use, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useRestaurentData from "../utils/useRestaurentData";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   //local state variable-super powerful variable
   const [searchText, setSearchText] = useState("");
   const { listOfRestaurent, filterRestaurent, setFilteredRestaurant } =
     useRestaurentData();
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false)
+    return <h1>Offline, Please check your internet connection</h1>;
   return listOfRestaurent?.length === 0 ? (
     <Shimmer />
   ) : (
