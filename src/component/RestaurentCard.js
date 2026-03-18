@@ -9,15 +9,30 @@ const RestaurentCard = ({ resData }) => {
     main_offering,
     is_opened,
   } = resData;
-  // ?. is called optional chaining. It safely accesses a property only if the object exists. Without ?., trying to access .data on undefined crashes the app. With ?., it returns undefined safely.
 
   return (
-    <div className="res-card">
-      <img className="res-logo" src={logo} alt={`${brand_name} logo`} />
-      <h3>{brand_name}</h3>
-      <h4>{main_offering}</h4>
-      <p>{description}</p>
-      <p>Status: {is_opened ? "Open" : "Closed"}</p>
+    <div className="w-64 min-h-[320px] bg-white rounded-2xl overflow-hidden shadow-md flex flex-col cursor-pointer transition-transform duration-250 ease-in-out hover:-translate-y-1.5 hover:shadow-xl">
+      <img
+        className="w-full h-40 object-cover"
+        src={logo}
+        alt={`${brand_name} logo`}
+      />
+
+      <h3 className="text-lg font-semibold text-gray-900 m-3 h-[50px] overflow-hidden">
+        {brand_name}
+      </h3>
+
+      <h4 className="text-sm font-normal text-gray-600 mx-3 mb-2 h-[40px] overflow-hidden">
+        {main_offering}
+      </h4>
+
+      <p className="text-xs text-gray-700 mx-3 mb-3 line-clamp-2">
+        {description}
+      </p>
+
+      <p className="text-xs text-gray-700 mx-3 mb-3">
+        Status: {is_opened ? "Open" : "Closed"}
+      </p>
     </div>
   );
 };

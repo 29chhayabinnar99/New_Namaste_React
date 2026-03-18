@@ -1,6 +1,6 @@
 const Shimmer = () => {
   return (
-    <div className="shimmer-container">
+    <div className="mt-20 flex flex-wrap gap-5 justify-center">
       {[...Array(20)].map((_, index) => (
         <h1 key={index} className="card"></h1>
       ))}

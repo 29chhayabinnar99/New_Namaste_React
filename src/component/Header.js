@@ -12,13 +12,15 @@ const Header = () => {
   });
 
   return (
-    <div className="header">
+    <div className="flex justify-between items-center p-4 bg-white text-black shadow-md">
       <div className="logo-container">
-        <img className="logo" src={LOGO_URL} />
+        <img className="w-24 h-24" src={LOGO_URL} />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>online status :{onlineStatus ? "✅" : "🔴"}</li>
+      <div className="">
+        <ul className="flex list-none gap-5" l>
+          <li className="text-lg cursor-pointer transition-colors duration-300 hover:text-blue-600">
+            online status :{onlineStatus ? "✅" : "🔴"}
+          </li>
           <li>
             <Link to="/">Home</Link>
           </li>

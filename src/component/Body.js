@@ -11,22 +11,25 @@ const Body = () => {
   const { listOfRestaurent, filterRestaurent, setFilteredRestaurant } =
     useRestaurentData();
   const onlineStatus = useOnlineStatus();
+
   if (onlineStatus === false)
     return <h1>Offline, Please check your internet connection</h1>;
+
   return listOfRestaurent?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="button-container">
-        <div className="search-container">
+      <div className="flex justify-between items-center m-2 flex-wrap">
+        <div className="flex px-3 w-full py-2 gap-5">
           <input
+            className=" px-3 py-2 rounded-lg border border-gray-300 w-full hover:border-blue-500 text-base outline-none transition-all duration-300"
             type="text"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             placeholder="Search Restaurants..."
           />
           <button
-            className="search-button"
+            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300 transform hover:scale-105"
             onClick={() => {
               const filtered = listOfRestaurent.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase()),
@@ -38,7 +41,7 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="res-container">
+      <div className="flex justify-between flex-wrap gap-5 p-5">
         {/* we are mapping is restaurent by id  */}
         {filterRestaurent.map(
           (
