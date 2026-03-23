@@ -1,11 +1,17 @@
-import RestaurentCard from "./RestaurentCard";
+import RestaurentCard, { withHotDealLabel } from "./RestaurentCard";
 import { use, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useRestaurentData from "../utils/useRestaurentData";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { list } from "postcss";
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
 
 const Body = () => {
+  const { logedInUserName, setUserName } = useContext(UserContext);
+  console.log("logedInUserName in body", logedInUserName);
+  console.log("setUserName in body", setUserName);
   //local state variable-super powerful variable
   const [searchText, setSearchText] = useState("");
   const { listOfRestaurent, filterRestaurent, setFilteredRestaurant } =
@@ -14,6 +20,9 @@ const Body = () => {
 
   if (onlineStatus === false)
     return <h1>Offline, Please check your internet connection</h1>;
+
+  //use HOC to wrap RestaurentCard and create a new component with hot deal label
+  const RestaurentWithHotDeal = withHotDealLabel(RestaurentCard);
 
   return listOfRestaurent?.length === 0 ? (
     <Shimmer />
@@ -32,13 +41,20 @@ const Body = () => {
             className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300 transform hover:scale-105"
             onClick={() => {
               const filtered = listOfRestaurent.filter((res) =>
-                res.info.name.toLowerCase().includes(searchText.toLowerCase()),
+                res.brand_name.toLowerCase().includes(searchText.toLowerCase()),
               );
               setFilteredRestaurant(filtered);
             }}
           >
             Search
           </button>
+          <input
+            className=" px-3 py-2 rounded-lg border border-gray-300 w-full hover:border-blue-500 text-base outline-none transition-all duration-300"
+            type="text"
+            value={logedInUserName}
+            onChange={(e) => setUserName(e.target.value)}
+            placeholder="Enter User Name...."
+          />
         </div>
       </div>
       <div className="flex justify-between flex-wrap gap-5 p-5">
@@ -51,9 +67,14 @@ const Body = () => {
               key={restaurent.brand_name}
               to={`/restaurent-menu/${restaurent.brand_id}`}
             >
-              <RestaurentCard
-                resData={restaurent} // we are storing restaurent value in resdata prop
-              />
+              {/* render */}
+              {restaurent.discount_info.discount_value >= 50 ? (
+                <RestaurentWithHotDeal resData={restaurent} />
+              ) : (
+                <RestaurentCard
+                  resData={restaurent} // we are storing restaurent value in resdata prop
+                />
+              )}
             </Link>
           ),
         )}

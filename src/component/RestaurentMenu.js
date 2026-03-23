@@ -2,43 +2,33 @@ import { use, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurentMenu from "../utils/useRestaurentMenu";
+import RestaurentCategory from "./RestaurentCategory";
 const RestaurentMenu = () => {
-  //const [menus, setMenus] = useState(null);
+  const [showIndex, setShowIndex] = useState(null);
   const { brand_id } = useParams();
-  console.log(brand_id);
   const menus = useRestaurentMenu(brand_id);
-  // const fetchMenu = async () => {
-  //   const data = await fetch(
-  //     `${MENU_API_URL_START}${brand_id}${MENU_API_URL_URL_PARAMS}`,
-  //   );
-  //   const convertedJson = await data.json();
-  //   setMenus(convertedJson);
-  // };
 
-  // useEffect(() => {
-  //   fetchMenu();
-  // }, []);
-
-  if (!menus) return <Shimmer />;
-  console.log(menus);
+  if (!menus) return <h1>Loading...</h1>;
   const product = menus?.data?.collections?.[0]?.products?.[0];
-
+  const categories = menus?.data?.collections;
   const brand_name = product?.brand_name;
   const description = product?.small_description || product?.big_description;
 
   return (
-    <div className="Restaurent-Menu">
-      <h1>{brand_name}</h1>
-      <h4>{description}</h4>
-
-      <h3>Menu</h3>
-      <ul>
-        {menus?.data?.collections?.[0]?.products?.map((p) => (
-          <li key={p.product_id}>
-            {p.product_name} - ₹{p.price}
-          </li>
-        ))}
-      </ul>
+    <div className="m-5">
+      <h1 className="text-2xl font-bold mb-4">{brand_name}</h1>
+      <h4 className="text-xl text-gray-700">{description}</h4>
+      <h3 className="text-lg font-semibold mb-2 text-center">Menu</h3>
+      {categories.map((category, index) => (
+        //controlled component
+        <RestaurentCategory
+          data={category}
+          key={category.collection_id}
+          showItems={index === showIndex ? true : false}
+          // we are passing index to setShowIndex function so when we click on category it will set the index of that category in showIndex state variable and then we are comparing that index with current index of category if it is same then we are showing items of that category otherwise not
+          setShowIndex={() => setShowIndex(index)}
+        />
+      ))}
     </div>
   );
 };

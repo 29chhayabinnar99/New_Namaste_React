@@ -6,7 +6,6 @@ export default class UserClass extends React.Component {
     this.state = {
       count: 0,
     };
-    console.log("constructor called");
   }
 
   componentDidMount = () => {
@@ -15,7 +14,6 @@ export default class UserClass extends React.Component {
 
   render() {
     const { name } = this.props;
-    console.log("render called");
     return (
       <div className="user-container">
         <h3>Count: {this.state.count}</h3>

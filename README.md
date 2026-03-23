@@ -279,7 +279,7 @@ After everything is rendered, componentDidMount runs starting from children, the
 
 ---
 
-# Episode 09
+# Episode 09, 10
 
 ---
 
@@ -309,3 +309,69 @@ It listens for events happening in the browser.
 - How React does Code Splitting
   - **lazy()** Used to load components only when needed [const About = lazy(() => import("./About"));]
   - **Suspense** Used to show fallback UI while loading [<Suspense fallback={<h1>Loading...</h1>}> <About /> </Suspense>]
+
+---
+
+# Episode 11
+
+---
+
+# Higher-Order Component (HOC)?
+
+- A Higher-Order Component is a function that takes a component and returns a new component with additional functionality.
+- const EnhancedComponent = HOC(OriginalComponent);
+- steps to create HOC
+  - create hoc funtion
+  - wrap your og component with hoc
+  - then render hoc-wrapped component
+
+# Lifting state Up
+
+It means moving shared state to a parent component so multiple child components can use it.
+
+# Controlled and uncontrolled state
+
+- Controlled Component
+  - “A controlled component is one where the parent drives the important state via props, so the parent fully controls its behavior.”
+  - Simple words:
+    - Parent decides everything.
+    - Child just follows instructions.
+
+- Uncontrolled Component (React doc style)
+  - “An uncontrolled component is one that manages its own internal state, so the parent cannot directly control it.”
+  - Simple words:
+    - Child handles its own state.
+    - Parent cannot fully control it.
+
+# What is prop drilling?
+
+- Prop drilling happens when a parent component needs to pass some data to a deeply nested child. Every intermediate component has to pass the data along, even if they don’t use it themselves.
+- Instead of passing props through every component, we can use Context API so that the child can access the data directly.
+
+# Context API
+
+- “Context API is a React feature that lets you share data (state) across the component tree without passing props through every intermediate component.”
+- Simple words:
+  - Parent can provide data once.
+  - Any child (deeply nested or not) can access it directly.
+  - Avoids prop drilling.
+
+# What is Context Provider and Context Consumer?
+
+1️⃣ Context Provider
+
+- A Context Provider is a React component that provides the context value to all its children.
+- Simple words:
+  - It’s like a “store” or “source” of data.
+  - Any child component wrapped inside it can access the data.
+  - You define the value using the value prop.
+
+2️⃣ Context Consumer
+
+- A Context Consumer is a component that reads or uses the context value provided by a Provider.
+- Simple words:
+  - It’s like a “client” of the data store.
+  - Can read or even update the context data.
+
+**Provider:** Gives context to children
+**Consumer:** Uses or reads context from provider

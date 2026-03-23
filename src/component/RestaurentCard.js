@@ -9,7 +9,6 @@ const RestaurentCard = ({ resData }) => {
     main_offering,
     is_opened,
   } = resData;
-
   return (
     <div className="w-64 min-h-[320px] bg-white rounded-2xl overflow-hidden shadow-md flex flex-col cursor-pointer transition-transform duration-250 ease-in-out hover:-translate-y-1.5 hover:shadow-xl">
       <img
@@ -35,6 +34,20 @@ const RestaurentCard = ({ resData }) => {
       </p>
     </div>
   );
+};
+
+//create HOC
+export const withHotDealLabel = (RestaurentCard) => {
+  return (props) => {
+    return (
+      <div className="relative">
+        <RestaurentCard {...props} />
+        <span className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold py-1 px-2 rounded">
+          Hot Deal
+        </span>
+      </div>
+    );
+  };
 };
 
 export default RestaurentCard;

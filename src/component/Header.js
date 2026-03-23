@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
@@ -11,13 +13,15 @@ const Header = () => {
     console.log("useEffect called");
   });
 
+  const { logedInUserName } = useContext(UserContext);
+
   return (
     <div className="flex justify-between items-center p-4 bg-white text-black shadow-md">
       <div className="logo-container">
         <img className="w-24 h-24" src={LOGO_URL} />
       </div>
       <div className="">
-        <ul className="flex list-none gap-5" l>
+        <ul className="flex list-none gap-5">
           <li className="text-lg cursor-pointer transition-colors duration-300 hover:text-blue-600">
             online status :{onlineStatus ? "✅" : "🔴"}
           </li>
@@ -41,6 +45,7 @@ const Header = () => {
           >
             {btnName}
           </li>
+          <li className="font-bold">{logedInUserName}</li>
         </ul>
       </div>
     </div>
