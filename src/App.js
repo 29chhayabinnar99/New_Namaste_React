@@ -10,6 +10,9 @@ import Error from "./component/Error";
 import RestaurentMenu from "./component/RestaurentMenu";
 import UserContext from "./utils/UserContext";
 import { useState } from "react";
+import appStore from "./utils/appStore";
+import { Provider } from "react-redux";
+import Cart from "./component/Cart";
 
 const AppLayout = () => {
   const [userName, setUserName] = useState("");
@@ -24,13 +27,17 @@ const AppLayout = () => {
   return (
     // we are providing user context to all the components in the app layout so that we can access it in any component without prop drilling
     // now will overlap default user with this data and when we access logedInUserName in any component it will give us krish instead of default user
-    <UserContext.Provider value={{ logedInUserName: userName, setUserName }}>
-      <div className="app">
-        <Header />
-        <Outlet />
-        <Footer />
-      </div>
-    </UserContext.Provider>
+
+    // prividing store to the entire app
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ logedInUserName: userName, setUserName }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+          <Footer />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -65,6 +72,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurent-menu/:brand_id",
         element: <RestaurentMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

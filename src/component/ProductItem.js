@@ -1,4 +1,14 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
+
 const ProductItem = ({ products }) => {
+  const dispatch = useDispatch();
+
+  const handleAddItem = (product) => {
+    dispatch(addItem(product));
+    console.log("Item added to cart:", product);
+  };
+
   return (
     <div>
       {products?.map((product) => (
@@ -26,7 +36,10 @@ const ProductItem = ({ products }) => {
               className="w-full h-24 object-cover rounded-md"
             />
 
-            <button className="absolute bottom-1 left-1/2 -translate-x-1/2 bg-white px-2 py-1 text-sm shadow-md rounded">
+            <button
+              onClick={() => handleAddItem(product)}
+              className="absolute bottom-1 left-1/2 -translate-x-1/2 bg-white px-2 py-1 text-sm shadow-md rounded"
+            >
               ADD +
             </button>
           </div>

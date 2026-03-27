@@ -1,5 +1,4 @@
 import ProductItem from "./ProductItem";
-import { useState } from "react";
 
 const RestaurentCategory = ({ data, showItems, setShowIndex }) => {
   const HandleClick = () => {

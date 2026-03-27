@@ -374,4 +374,45 @@ It means moving shared state to a parent component so multiple child components 
   - Can read or even update the context data.
 
 **Provider:** Gives context to children
-**Consumer:** Uses or reads context from provider
+**Consumer:** Uses or reads context from provider\
+
+---
+
+# Episode 12
+
+---
+
+# what is Redux?
+
+- Redux is a state management library used to manage and share application state globally in a predictable way.
+- The flow in Redux is: UI dispatches an action → reducer updates the state → store holds updated state → UI re-renders.
+
+# Flow of redux
+
+**Flow for write data**
+
+- In Redux, we create a central store that contains different slices of state. When a user interacts with the UI, like clicking an ‘Add’ button, an action is dispatched Which calls the reducers funtion and which updates the slice of redux store
+- On UI click on ADD button -> action dispatch -> reducer funtion called/ handle -> updates the slice of the redux store
+
+**Flow for read data**
+
+- The component reads data from the store using useSelector, so whenever the state changes, it automatically gets the latest data and re-renders.
+- Read: store → useSelector → UI
+
+- Core Concepts (simple)
+  Store → central place where all state lives
+  Slice → a part of the store for a specific feature (e.g., cartSlice, userSlice)
+  Action → describes what change to make
+  Reducer → decides how state should change based on the action
+  Dispatch → triggers the action
+
+**Steps to Set Up Redux**
+
+- Install redux - npm install @reduxjs/toolkit react-redux
+- create store
+- prividing store to the entire app (Wrap your app with <Provider>)
+- Create a Slice - A slice contains: state , reducers (functions to update state), actions
+- Add reducer to store (Import the slice reducer and add it inside the store configuration.)
+- Use Redux in Components
+  - Use useSelector → to read data from store
+  - Use useDispatch → to dispatch actions
