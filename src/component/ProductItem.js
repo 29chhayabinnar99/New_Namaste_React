@@ -6,7 +6,6 @@ const ProductItem = ({ products }) => {
 
   const handleAddItem = (product) => {
     dispatch(addItem(product));
-    console.log("Item added to cart:", product);
   };
 
   return (

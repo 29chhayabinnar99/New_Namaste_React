@@ -10,8 +10,7 @@ import { useContext } from "react";
 
 const Body = () => {
   const { logedInUserName, setUserName } = useContext(UserContext);
-  console.log("logedInUserName in body", logedInUserName);
-  console.log("setUserName in body", setUserName);
+
   //local state variable-super powerful variable
   const [searchText, setSearchText] = useState("");
   const { listOfRestaurent, filterRestaurent, setFilteredRestaurant } =

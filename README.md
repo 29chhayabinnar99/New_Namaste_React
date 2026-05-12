@@ -144,7 +144,11 @@ This project has a basic structure divided into three main sections: **Header**,
 
 # **Reaact hook** - it is just a normal utility function which is given to us by react. Its a prebuilt whoch comes up with special power.
 
-# useState- whenever state veriable (listOfResto) changes react rerender our funtional component(setListOfResto).
+# useState-
+
+useState is a Hook that allows functional components to have and manage state.
+whenever state veriable (listOfResto) changes react rerender our funtional component(setListOfResto).
+useState returns an array that contains a state variable and an update function, and it takes an initial value as an argument.
 
 # Why React is fast: React does efficient DOM manipulation. It uses Virtual DOM (which has a diffing algorithm to efficiently compare changes) it will find out the diff and update the UI only change part.
 
@@ -163,9 +167,15 @@ This project has a basic structure divided into three main sections: **Header**,
 
 - useEffect runs after the component renders and the DOM is updated.
 - useEffect takes arguments one is callback funtion and dependency array useEffect(callback, dependencyArray)
-- if no dependency array => it will render every time of component
+- if no dependency array => It runs after every render (initial + updates)
 - if dependency array present => [] => useEffect will call only on initial render
 - it dependency array is =>[btnName]=> useeefect will call every time when btnName is updated
+
+# useRef
+
+useRef is a React Hook used to store a value that does NOT cause re-render when it changes.
+
+It also gives you a way to directly access DOM elements.
 
 # CORS
 
